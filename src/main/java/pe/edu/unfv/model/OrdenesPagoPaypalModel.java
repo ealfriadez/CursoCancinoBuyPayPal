@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,7 +17,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "ordenes_paypal")
-public class OrdenesPagoPaypal {
+@Builder
+public class OrdenesPagoPaypalModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +34,7 @@ public class OrdenesPagoPaypal {
 	public Date fecha;
 	public String paypal_request;
 	
-	public OrdenesPagoPaypal(String token, String orden, String nombre, String correo, String id_captura, String monto,
+	public OrdenesPagoPaypalModel(String token, String orden, String nombre, String correo, String id_captura, String monto,
 			String country_code, int estado, Date fecha, String paypal_request) {
 		super();
 		this.token = token;
